@@ -1,0 +1,96 @@
+<html
+        xmlns:th="http://thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{layout}">
+<head>
+    <title>Incluir novo Livro</title>
+</head>
+<body class="d-flex flex-column h-100">
+<main class="flex-shrink-0">
+    <section layout:fragment="body" class="py-5">
+
+        <div class="container">
+            <h4>Incluir novo Livro</h4>
+            <br>
+            <form role="form" method="post" th:action="@{/projects/new}" th:object="${project}">
+                <div class="form-row">
+
+                    <div class="form-group col-md-6">
+                        <label for="titulo">Titulo</label>
+                        <input
+                                type="text"
+                                class="form-control"
+                                id="titulo"
+                                name="titulo"
+                                th:field="*{titulo}"
+                                placeholder="Nome do livro">
+                        <p th:if="${#fields.hasErrors('titulo')}" class="text-danger" th:errors="*{titulo}"></p>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="editora">Editora</label>
+                        <input
+                                type="text"
+                                class="form-control"
+                                id="editora"
+                                name="editora"
+                                th:field="*{editora}"
+                                placeholder="Entre com o nome da editora">
+                        <p th:if="${#fields.hasErrors('editora')}" class="text-danger" th:errors="*{editora}"></p>
+                    </div>
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group col-md-6">
+                        <label for="anoPublicacao">Ano de publicação</label>
+                        <input
+                                type="text"
+                                class="form-control"
+                                id="anoPublicacao"
+                                name="anoPublicacao"
+                                th:field="*{anoPublicacao}"
+                                placeholder="Entre com o ano de publicação ex: 2018">
+                        <p th:if="${#fields.hasErrors('anoPublicacao')}" class="text-danger" th:errors="*{anoPublicacao}"></p>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="edicao">Edição</label>
+                        <input
+                                type="text"
+                                class="form-control"
+                                id="edicao"
+                                name="edicao"
+                                th:field="*{edicao}"
+                                placeholder="Entre com a edição, ex: 2">
+                        <p th:if="${#fields.hasErrors('edicao')}" class="text-danger" th:errors="*{edicao}"></p>
+                    </div>
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group col-md-6">
+                        <label for="valor">Valor do livro</label>
+                        <input
+                                type="text"
+                                class="form-control"
+                                id="valor"
+                                name="valor"
+                                th:field="*{valor}"
+                                placeholder="ex: 100.00">
+                        <p th:if="${#fields.hasErrors('valor')}" class="text-danger" th:errors="*{valor}"></p>
+                    </div>
+
+
+                </div>
+
+                <div class="form-group mb-3"></div>
+
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </form>
+        </div>
+    </section>
+</main>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<html
+        xmlns:th="http://thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{layout}">
+<head>
+    <title>Editar Assunto</title>
+</head>
+<body class="d-flex flex-column h-100">
+<main class="flex-shrink-0">
+    <section layout:fragment="body" class="py-5">
+        <div class="container">
+            <form role="form" method="post" th:action="@{/subjects/{projectId}/edit(projectId=${project.codAs})}" th:object="${project}">
+                <input type="hidden" th:field="*{codAs}">
+
+                <div class="form-row">
+
+                    <div class="form-group col-md-6">
+                        <label for="descricao">Descrição</label>
+                        <input
+                                type="text"
+                                class="form-control"
+                                id="descricao"
+                                name="descricao"
+                                th:field="*{descricao}"
+                                placeholder="Entre com assunto">
+                        <p th:if="${#fields.hasErrors('descricao')}" class="text-danger" th:errors="*{descricao}"></p>
+                    </div>
+                </div>
+
+                <div class="form-group mb-3"></div>
+                <button type="submit" class="btn btn-primary">Atualizar</button>
+                <button type="button" class="btn btn-default" ><a th:href="@{/subjects}">Voltar</a></button>
+            </form>
+        </div>
+    </section>
+</main>
+</body>
+</html>
