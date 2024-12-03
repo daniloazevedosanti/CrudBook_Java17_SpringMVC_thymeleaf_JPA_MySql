@@ -17,3 +17,5 @@ e criar uma base (banco de dados) conforme application.properties da solution (i
 ** localhost:8080/v1/livros/id 
 ** localhost:8080/v1/autores
 ** localhost:8080/v1/assuntos
+
+5 - O relatório baixado estará no diretório "C:/temp/report.pdf"), busque pelo FileOutputStream("C:/temp/report.pdf") para alterar o caminho.

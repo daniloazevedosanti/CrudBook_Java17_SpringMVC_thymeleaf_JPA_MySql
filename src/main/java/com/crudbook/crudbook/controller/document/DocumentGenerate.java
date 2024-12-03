@@ -29,7 +29,7 @@ public class DocumentGenerate {
 
             HtmlConverter.convertToPdf(processedHtml, pdfwriter, converterProperties);
 
-            FileOutputStream fout = new FileOutputStream("C:/Users/danaz/report.pdf");
+            FileOutputStream fout = new FileOutputStream("C:/temp/report.pdf", true);
 
             byteArrayOutputStream.writeTo(fout);
             byteArrayOutputStream.close();
