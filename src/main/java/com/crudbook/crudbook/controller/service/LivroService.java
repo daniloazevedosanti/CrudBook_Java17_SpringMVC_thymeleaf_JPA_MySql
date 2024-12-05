@@ -42,23 +42,27 @@ public class LivroService implements ILivroService {
                 null, null, null);
 
         var autor = new Autor();
-        for (var item : createdLivroDto.autores()) {
-            autor = new Autor(null, item.getNome(), null, null);
-            if (item.getCodAu() != null) {
-                autor.setCodAu(item.getCodAu());
+        if(createdLivroDto.autores() != null){
+            for (var item : createdLivroDto.autores()) {
+                autor = new Autor(null, item.getNome(), null, null);
+                if (item.getCodAu() != null) {
+                    autor.setCodAu(item.getCodAu());
+                }
+                var objAutor = autorRepository.save(autor);
+                autor = new Autor();
             }
-            var objAutor = autorRepository.save(autor);
-            autor = new Autor();
         }
 
         var assunto = new Assunto();
-        for (var item : createdLivroDto.assuntos()) {
-            assunto = new Assunto(null, item.getDescricao(), null);
-            if (item.getCodAs() != null) {
-                assunto.setCodAs(item.getCodAs());
+        if(createdLivroDto.assuntos() != null){
+            for (var item : createdLivroDto.assuntos()) {
+                assunto = new Assunto(null, item.getDescricao(), null);
+                if (item.getCodAs() != null) {
+                    assunto.setCodAs(item.getCodAs());
+                }
+                var objAssunto = assuntoRepository.save(assunto);
+                assunto = new Assunto();
             }
-            var objAssunto = assuntoRepository.save(assunto);
-            assunto = new Assunto();
         }
 
         livro.setAutores(createdLivroDto.autores());
