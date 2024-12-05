@@ -51,6 +51,7 @@ public class LivroService implements ILivroService {
                 var objAutor = autorRepository.save(autor);
                 autor = new Autor();
             }
+            livro.setAutores(createdLivroDto.autores());
         }
 
         var assunto = new Assunto();
@@ -63,10 +64,8 @@ public class LivroService implements ILivroService {
                 var objAssunto = assuntoRepository.save(assunto);
                 assunto = new Assunto();
             }
+            livro.setAssuntos(createdLivroDto.assuntos());
         }
-
-        livro.setAutores(createdLivroDto.autores());
-        livro.setAssuntos(createdLivroDto.assuntos());
 
         var objLivro = repository.save(livro);
 
