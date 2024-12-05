@@ -96,8 +96,8 @@ public class LivroService implements ILivroService {
 
             CreatedLivroDto dto = new CreatedLivroDto(item.getCodL().longValue(), item.getTitulo(), item.getEditora(),
                                     item.getEdicao(), item.getAnoPublicacao(), item.getValor(),
-                                    autores.toString().substring(0, autores.toString().length() - 1),
-                                    assuntos.toString().substring(0, assuntos.toString().length() - 1));
+                    autores.toString() != "" ? autores.toString().substring(0, autores.toString().length() - 1) : null,
+                    assuntos.toString() != "" ? assuntos.toString().substring(0, assuntos.toString().length() - 1): null);
 
             createdLivroDtos.add(dto);
             autores = new StringBuilder();
